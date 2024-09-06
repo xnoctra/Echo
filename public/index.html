@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Vibrance" />
+    <meta name="description" content="A fast way to unblock websites." />
+    <link rel="icon" type="image/x-icon" href="echo2.png" />
+    <title>Echo</title>
+    <link rel="stylesheet" href="css/dark.css" />
+  </head>
+  <body style="margin: 0">
+    <div id="loader">
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <h1 style="transform: translateY(-6px)">Echo</h1>
+    </div>
+
+    <div style="display: none" id="bootup">
+      <div class="btnContain">
+        <div id="toggleBtn" class="btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-bolt"
+          >
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+            />
+            <circle cx="12" cy="12" r="4" />
+          </svg>
+        </div>
+
+        <div class="btn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-wand-sparkles"
+          >
+            <path
+              d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"
+            />
+            <path d="m14 7 3 3" />
+            <path d="M5 6v4" />
+            <path d="M19 14v4" />
+            <path d="M10 2v2" />
+            <path d="M7 8H3" />
+            <path d="M21 16h-4" />
+            <path d="M11 3H9" />
+          </svg>
+        </div>
+      </div>
+      <div id="sidebar" class="sidebar">
+        <div class="mode">
+          <button id="active">Standard mode</button>
+          <button>Minimalist mode</button>
+        </div>
+        <div class="sbSection-container">
+          <div class="sbSection">
+            <h1>Wallpaper</h1>
+            <p>Dim the wallpaper</p>
+            <div class="setting">
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="50"
+                  class="slider"
+                />
+              </div>
+              <p>100%</p>
+            </div>
+            <p>Blur</p>
+            <div class="setting">
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="50"
+                  class="slider"
+                />
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
+          <div class="sbSection">
+            <h1>Custom Theming</h1>
+            <p class="subh1">
+              Will be overridden by preset themes until toggled
+            </p>
+            <div class="setting">
+              <p>Enable custom theming</p>
+              <input type="checkbox" id="checkboxInput" />
+              <label for="checkboxInput" class="toggleSwitch"> </label>
+            </div>
+            <hr />
+            <div class="setting">
+              <p>Background Color</p>
+              <input class="customTheme" type="color" />
+            </div>
+            <div class="setting">
+              <p>Primary</p>
+              <input class="customTheme" type="color" />
+            </div>
+            <div class="setting">
+              <p>Secondary</p>
+              <input class="customTheme" type="color" />
+            </div>
+            <div class="setting">
+              <p>Blob Colors</p>
+              <input class="customTheme" type="color" />
+              <input class="customTheme ct-2" type="color" />
+            </div>
+          </div>
+          <div class="sbSection">
+            <h1>Way to open sites</h1>
+            <p class="subh1">Determines how your searching opens</p>
+            <div class="setting">
+              <p>Open site with about:blank cloaking</p>
+              <input type="checkbox" id="checkboxInput" />
+              <label for="checkboxInput" class="toggleSwitch"> </label>
+            </div>
+            <div class="setting">
+              <p>Open site with blob cloaking</p>
+              <input type="checkbox" id="checkboxInput" />
+              <label for="checkboxInput" class="toggleSwitch"> </label>
+            </div>
+            <div class="setting">
+              <p>Open site with no cloaking</p>
+              <input type="checkbox" id="checkboxInput" />
+              <label for="checkboxInput" class="toggleSwitch"> </label>
+            </div>
+          </div>
+          <div class="sbSection">
+            <h1>View</h1>
+            <p>Sizing</p>
+            <div class="setting">
+              <div class="slidecontainer">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="50"
+                  class="slider"
+                />
+              </div>
+              <p>100%</p>
+            </div>
+          </div>
+          <div class="sbSection">
+            <h1>Icon</h1>
+          </div>
+          <div class="sbSection">
+            <h1>Stealth</h1>
+          </div>
+          <div class="sbSection">
+            <h1>Reset Settings</h1>
+          </div>
+        </div>
+      </div>
+      <div id="closeIcon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-x"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </div>
+      <div class="full-screen-container">
+        <h1><span>E</span><span>c</span><span>h</span><span>o</span></h1>
+        <form id="uv-form">
+          <input
+            type="text"
+            placeholder="Search or type URL"
+            id="searchbar"
+            required
+            autocomplete="off"
+          />
+        </form>
+      </div>
+      <div class="blob"></div>
+      <div class="blobtop"></div>
+      <div class="saving"></div>
+    </div>
+    <script src="/@/bundle.js"></script>
+    <script src="/@/config.js"></script>
+    <script>
+      var TxtType = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = "";
+        this.tick();
+        this.isDeleting = false;
+      };
+
+      TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) {
+          delta /= 2;
+        }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === "") {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        }
+
+        setTimeout(function () {
+          that.tick();
+        }, delta);
+      };
+
+      function initTypeWriter() {
+        var elements = document.getElementsByClassName("typewrite");
+        for (var i = 0; i < elements.length; i++) {
+          var toRotate = elements[i].getAttribute("data-type");
+          var period = elements[i].getAttribute("data-period");
+          if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+          }
+        }
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML =
+          ".typewrite > .wrap { border-right: 0.08em solid #7700ff}";
+        document.body.appendChild(css);
+      }
+
+      const form = document.getElementById("uv-form");
+      const address = document.getElementById("searchbar");
+      const searchEngine = document.getElementById("uv-search-engine");
+      const error = document.getElementById("uv-error");
+      const errorCode = document.getElementById("uv-error-code");
+      const input = document.querySelector("input");
+      class crypts {
+        static encode(str) {
+          return encodeURIComponent(
+            str
+              .toString()
+              .split("")
+              .map((char, ind) =>
+                ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+              )
+              .join("")
+          );
+        }
+
+        static decode(str) {
+          if (str.charAt(str.length - 1) === "/") {
+            str = str.slice(0, -1);
+          }
+          return decodeURIComponent(
+            str
+              .split("")
+              .map((char, ind) =>
+                ind % 2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char
+              )
+              .join("")
+          );
+        }
+      }
+
+      function search(input) {
+        input = input.trim();
+        const searchTemplate =
+          localStorage.getItem("engine") || "https://google.com/search?q=%s";
+
+        try {
+          return new URL(input).toString();
+        } catch (err) {
+          try {
+            const url = new URL(`http://${input}`);
+            if (url.hostname.includes(".")) {
+              return url.toString();
+            }
+            throw new Error("Invalid hostname");
+          } catch (err) {
+            return searchTemplate.replace("%s", encodeURIComponent(input));
+          }
+        }
+      }
+      if ("serviceWorker" in navigator) {
+        var proxySetting = "uv";
+        let swConfig = {
+          uv: { file: "/@/sw.js", config: __uv$config },
+        };
+
+        let { file: swFile, config: swConfigSettings } = swConfig[proxySetting];
+
+        navigator.serviceWorker
+          .register(swFile, { scope: swConfigSettings.prefix })
+          .then((registration) => {
+            console.log(
+              "ServiceWorker registration successful with scope: ",
+              registration.scope
+            );
+            form.addEventListener("submit", async (event) => {
+              event.preventDefault();
+
+              let encodedUrl =
+                swConfigSettings.prefix + crypts.encode(search(address.value));
+              sessionStorage.setItem("encodedUrl", encodedUrl);
+              location.href = "/go";
+            });
+          })
+          .catch((error) => {
+            console.error("ServiceWorker registration failed:", error);
+          });
+      }
+    </script>
+    <script>
+   let spans = document.querySelectorAll('h1 span');
+let infectedIndex = Math.floor(Math.random() * spans.length);
+spans[infectedIndex].classList.add('infected');
+
+let corruptionTimeout = null;
+let corruptionDelay = 1500; // 1.5 seconds
+let flickerChance = 0.3; // 30% chance of flicker
+let flickerDuration = 0.1; // 0.1 seconds
+let flickerCount = 3; // 3 times
+
+function corruptText(index) {
+spans[index].classList.add('infected');
+if (Math.random() < flickerChance) {
+flickerEffect(index);
+}
+let neighbors = getNeighbors(index);
+for (let i = 0; i < neighbors.length; i++) {
+corruptionTimeout = setTimeout(() => {
+corruptText(neighbors[i]);
+}, corruptionDelay);
+}
+}
+
+function getNeighbors(index) {
+let neighbors = [];
+if (index > 0) {
+neighbors.push(index - 1);
+}
+if (index < spans.length - 1) {
+neighbors.push(index + 1);
+}
+return neighbors;
+}
+
+function flickerEffect(index) {
+for (let i = 0; i < flickerCount; i++) {
+setTimeout(() => {
+spans[index].style.opacity = 0;
+}, i * flickerDuration);
+setTimeout(() => {
+spans[index].style.opacity = 1;
+}, (i + 0.5) * flickerDuration);
+}
+}
+
+corruptText(infectedIndex);
+    </script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
