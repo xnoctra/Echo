@@ -21,18 +21,34 @@
   --hs-background-color: #0f0f0f;
   --hs-placeholder-color: #868686;
   --hs-onfocus-border: var(--primary);
-  
+
   --hp-button-svg-color: #fff;
   --hp-button-background: #00000084;
 
+
+
+  /* Tabs */
+  --ub-background: #2e2e2e;
+  --tabs-background: #111111; /* Tab background behind tab and unactive tabs */
+  --tabs-active: var(--ub-background); /* Copies utility bar background */
+  --tab-hover-color: var(--ub-background);
+  --tab-hover-hover-color: #404040; /* Hover of close button and utility buttons */
+  --icon-color: var(--ub-btn-color);
+  --tab-text-color: #fff; /* Controls tab text color */
+
   /* Utility Bar */
-  --ub-searchbar-background-color: #181818;
-  --ub-searchbar-text-color: #676767;
-  --ub-searchbar-text-color-hover: #fff; 
+  --ub-searchbar-background-color: #1e1e1e;
+  --ub-searchbar-text-color: #868686;
+  --ub-searchbar-text-color-hover: #ffffff;
 
-  --ub-btn-color: #fff;
-  --ub-btn-background-color-hover: #1b1b1b;
+  --ub-btn-color: #fff; /* Controls all icon colors for go.html page */
+  --ub-btn-background-color-hover: var(--tab-hover-hover-color);
 
+  
+  
+  
+  
+  
   /* Sidebar CSS */
   --sb-background-color: #000000;
   --sb-slider-background-color: #141414;
@@ -41,7 +57,7 @@
   --sb-h1-color: #ffffff;
   --sb-p-color: #acacac;
   --sb-sub-h1-color: #4f4f4f;
-  --sb-side-shadow-color: rgba(0,0,0,0.75);
+  --sb-side-shadow-color: rgba(0, 0, 0, 0.75);
 
   --sb-section-background: #0e0e0e;
 
@@ -78,6 +94,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
+  transform: translateY(45px);
 }
 
 .u-btn {
@@ -114,6 +131,10 @@ body {
   border-radius: 30px;
   color: var(--ub-searchbar-text-color);
   transition: 0.5s;
+}
+
+.utilitySearch::placeholder {
+  color: var(--ub-searchbar-text-color);
 }
 
 .utilitySearch:hover {
@@ -190,24 +211,26 @@ body {
 }
 
 #closeIcon {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 37px;
-    height: 37px;
-    border-radius: 7px;
-    backdrop-filter: blur(5px);
-    cursor: pointer;
-    transition: 0.4s;
-    animation: spin 1s ease;
-    right: -40px;
-    top: 10px;
-    z-index: 99999;
-    color: var(--sb-close-btn-color);
-    opacity: 0;
-    transition: right 0.3s ease, opacity 0.3s ease;
-    transition: 0.3s ease all;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 7px;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: 0.4s;
+  animation: spin 1s ease;
+  right: -40px;
+  top: 10px;
+  z-index: 99999;
+  color: var(--sb-close-btn-color);
+  opacity: 0;
+  transition:
+    right 0.3s ease,
+    opacity 0.3s ease;
+  transition: 0.3s ease all;
 }
 
 #closeIcon:hover {
@@ -379,8 +402,8 @@ body {
   border-radius: 5px;
   background: var(--sb-slider-background-color);
   outline: none;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
   cursor: pointer;
 }
 
@@ -389,7 +412,7 @@ body {
   appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 50%; 
+  border-radius: 50%;
   background: var(--sb-section-background);
   cursor: pointer;
   border: 2px var(--sb-circle-border-color) solid;
@@ -473,21 +496,10 @@ h1 {
   color: var(--h1-color);
 }
 
-h1 span {
-  transition: 1s;
-  cursor: pointer;
-}
-
 .infected {
   color: var(--primary);
   text-shadow: 0 0 5px var(--primary), 0 0 25px var(--primary);
   transition: color 0.5s, text-shadow 0.5s; /* add transition for fade effect */
-}
-
-h1 span:hover {
-  color: var(--primary);
-  text-shadow: 0 0 5px var(--primary), 0 0 25px var(--primary);
-  transition: 1s;
 }
 
 .full-screen-container {
@@ -720,4 +732,133 @@ h1 span:hover {
     transform: scale(0, 0) rotateZ(90deg);
     opacity: 0;
   }
+}
+
+/* --------------------------------- TABS ------------------------------------ */
+.t-menu svg {
+  color: var(--icon-color);
+  height: 15px;
+  width: 15px;
+}
+
+.t-menu {
+  width: 20px;
+  height: 20px;
+  background: var(--tabs-active);
+  padding: 6px;
+  position: fixed;
+  left: 5px;
+  border-radius: 30%;
+  transition: 0.3s;
+  color: var(--icon-color);
+}
+
+.t-menu:hover {
+  transition: 0.3s;
+  background: var(--tab-hover-hover-color);
+}
+
+.t-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 45px;
+  padding-left: 42px;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  background: var(--tabs-background);
+  font-family: Arial;
+  user-select: none;
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  height: 32px;
+  background: transparent;
+  align-items: center;
+  padding-left: 33px;
+  padding-right: 5px;
+  border-radius: 10px;
+  justify-content: space-between;
+  color: var(--tab-text-color);
+  cursor: default;
+  transition: 0.3s;
+}
+
+.tab p {
+  text-wrap: nowrap;
+  font-weight: 200;
+  font-size: 13px;
+  width: 155px;
+  white-space: nowrap;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, black 70%, transparent);
+}
+
+.tab::before {
+  content: "";
+  height: 18px;
+  width: 18px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0-SeImrYXukvmkD5w7kvNqOsobhV4dv3N4g&s");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin: 0;
+  position: absolute;
+  transform: translate(-25px, 0px);
+}
+
+.tab svg {
+  transition: 0.3s;
+  padding: 4px;
+  border-radius: 20%;
+  color: var(--icon-color);
+  height: 15px;
+  width: 15px;
+}
+
+.tab svg:hover {
+  background: var(--tab-hover-hover-color);
+  transition: 0.3s;
+}
+
+.t-active,
+.tab:hover {
+  background: var(--tab-hover-color);
+  transition: 0.3s;
+}
+
+#new-t svg {
+  height: 13px;
+  width: 13px;
+}
+
+#new-t {
+  height: 15px;
+  width: 15px;
+  align-self: center;
+  transition: 0.3s;
+  padding: 7px;
+  border-radius: 30%;
+  color: var(--icon-color);
+}
+
+#new-t:hover {
+  background: var(--tab-hover-color);
+  transition: 0.3s;
+}
+
+.tab:first-child {
+  margin-left: 0;
+}
+
+.tab:last-child {
+  margin-right: 40px;
 }

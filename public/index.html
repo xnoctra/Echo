@@ -358,52 +358,55 @@
       }
     </script>
     <script>
-   let spans = document.querySelectorAll('h1 span');
-let infectedIndex = Math.floor(Math.random() * spans.length);
-spans[infectedIndex].classList.add('infected');
+      let spans = document.querySelectorAll("h1 span");
+      let infectedIndex = Math.floor(Math.random() * spans.length);
+      spans[infectedIndex].classList.add("infected");
 
-let corruptionTimeout = null;
-let corruptionDelay = 1500; // 1.5 seconds
-let flickerChance = 0.3; // 30% chance of flicker
-let flickerDuration = 0.1; // 0.1 seconds
-let flickerCount = 3; // 3 times
+      let corruptionTimeout = null;
+      let corruptionDelay = 1500; // 1.5 seconds
+      let flickerChance = 0.3; // 30% chance of flicker
+      let flickerDuration = 0.1; // 0.1 seconds
+      let flickerCount = 3; // 3 times
 
-function corruptText(index) {
-spans[index].classList.add('infected');
-if (Math.random() < flickerChance) {
-flickerEffect(index);
-}
-let neighbors = getNeighbors(index);
-for (let i = 0; i < neighbors.length; i++) {
-corruptionTimeout = setTimeout(() => {
-corruptText(neighbors[i]);
-}, corruptionDelay);
-}
-}
+      function corruptText(index) {
+        spans[index].classList.add("infected");
+        if (Math.random() < flickerChance) {
+          flickerEffect(index);
+        }
+        let neighbors = getNeighbors(index);
+        for (let i = 0; i < neighbors.length; i++) {
+          corruptionTimeout = setTimeout(() => {
+            corruptText(neighbors[i]);
+          }, corruptionDelay);
+        }
+      }
 
-function getNeighbors(index) {
-let neighbors = [];
-if (index > 0) {
-neighbors.push(index - 1);
-}
-if (index < spans.length - 1) {
-neighbors.push(index + 1);
-}
-return neighbors;
-}
+      function getNeighbors(index) {
+        let neighbors = [];
+        if (index > 0) {
+          neighbors.push(index - 1);
+        }
+        if (index < spans.length - 1) {
+          neighbors.push(index + 1);
+        }
+        return neighbors;
+      }
 
-function flickerEffect(index) {
-for (let i = 0; i < flickerCount; i++) {
-setTimeout(() => {
-spans[index].style.opacity = 0;
-}, i * flickerDuration);
-setTimeout(() => {
-spans[index].style.opacity = 1;
-}, (i + 0.5) * flickerDuration);
-}
-}
+      function flickerEffect(index) {
+        for (let i = 0; i < flickerCount; i++) {
+          setTimeout(() => {
+            spans[index].style.opacity = 0;
+          }, i * flickerDuration);
+          setTimeout(
+            () => {
+              spans[index].style.opacity = 1;
+            },
+            (i + 0.5) * flickerDuration
+          );
+        }
+      }
 
-corruptText(infectedIndex);
+      corruptText(infectedIndex);
     </script>
     <script src="js/index.js"></script>
   </body>
