@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="Vibrance" />
     <meta name="description" content="A fast way to unblock websites." />
-    <link rel="icon" type="image/x-icon" href="home.png" />
-    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="new-t.png" />
+    <title>New Tab</title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body style="margin: 0">
@@ -196,73 +196,22 @@
           <path d="m6 6 12 12" />
         </svg>
       </div>
-      <div class="full-screen-container" style="transform: translateY(-50px)">
-        <h1 class="fade-top" style="display: flex">
-          <span>E</span><span>c</span><span>h</span><span>o</span>
-          <div>V1</div>
-        </h1>
-        <p
-          class="fade-top"
-          style="
-            margin-top: 0;
-            text-wrap: wrap;
-            width: 500px;
-            text-align: center;
-            line-height: 25px;
-          "
-        >
-          Experience next generation tabs with Echo. Browse on multiple tabs,
-          and explore the web privately and silently.
-        </p>
-        <div class="h-btn-contain fade-top">
-          <button class="h-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-zap"
-            >
-              <path
-                d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"
-              />
-            </svg>
-            Get Started
-          </button>
-          <button class="h-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-settings-2"
-            >
-              <path d="M20 7h-9" />
-              <path d="M14 17H5" />
-              <circle cx="17" cy="17" r="3" />
-              <circle cx="7" cy="7" r="3" /></svg>
-            Customize
-          </button>
-        </div>
-        <div class="h-footer fade-in">
-          <p><i class="fa-brands fa-discord"></i><span>Discord</span></p>
-          <p><i class="fa-brands fa-github"></i><span>GitHub</span></p>
-          <p><i class="fa-brands fa-patreon"></i><span>Patreon</span></p>
-          <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eclipse"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 1 0 10 10"/></svg><span>Light</span></p>
-        </div>
+      <div class="full-screen-container">
+        <h1><span>E</span><span>c</span><span>h</span><span>o</span><div>V1</div></h1>
+        <form id="uv-form">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input
+            type="text"
+            placeholder="Search or enter a URL"
+            id="searchbar"
+            required
+            autocomplete="off"
+          />
+        </form>
       </div>
       <div class="blob"></div>
       <div class="blobtop"></div>
+      <div class="saving"></div>
     </div>
     <script src="/@/bundle.js"></script>
     <script src="/@/config.js"></script>
@@ -400,7 +349,7 @@
               let encodedUrl =
                 swConfigSettings.prefix + crypts.encode(search(address.value));
               sessionStorage.setItem("encodedUrl", encodedUrl);
-              location.href = encodedUrl;
+              location.href = encodedUrl
             });
           })
           .catch((error) => {
