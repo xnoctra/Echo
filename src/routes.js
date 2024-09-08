@@ -12,9 +12,12 @@ router.get("/go", (req, res) => {
 	res.sendFile(path.join(process.cwd(), "/public/go.html"));
 });
 
-router.use((req, res, next) => {
-	res.status(404).sendFile(path.join(__dirname, 'public/404.html'));
-});
-  
+router.use("/tabs/", (req, res) => {
+	express.static(__dirname + 'public/tabs/')
+})
+
+// router.use((req, res, next) => {
+// 	res.status(404).sendFile(path.join(__dirname, 'public/404.html'));
+// });
 
 export default router;

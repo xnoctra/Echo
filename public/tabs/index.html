@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link rel="stylesheet" href="css/dark.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Echo</title>
     <style>
       body {
@@ -53,10 +53,7 @@
           <rect width="7" height="7" x="3" y="14" rx="1" />
         </svg>
 
-        <div class="tab t-active"><p>Google</p></div>
-        <div class="tab"><p>YouTube - Google Search</p></div>
-        <div class="tab"><p>Google Analytics - Google Search</p></div>
-        <div class="tab"><p>Bananas - Google Search</p></div>
+        <div class="t-subcontainer"></div>
         <svg
           id="new-t"
           xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +143,7 @@
           </svg>
         </div>
 
-        <input class="utilitySearch" placeholder="Search or type a URL" />
+        <input class="utilitySearch" placeholder="Search or type a URL" id="utilSearch"/>
 
         <div class="u-btn">
           <svg
@@ -202,7 +199,7 @@
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="1"
             stroke-linecap="round"
             stroke-linejoin="round"
             class="lucide lucide-ellipsis-vertical"
@@ -213,52 +210,25 @@
           </svg>
         </div>
       </div>
-      <iframe
-        src=""
-        id="iframeId"
-        name="Iframe"
-        scrolling="yes"
-        frameborder="0"
-        marginheight="0px"
-        marginwidth="0px"
-        height="100%"
-        width="100%"
-        allowfullscreen
-      ></iframe>
+      <div class="saving"></div>
+      <div class="p-container">
     </div>
+    <script src="/@/bundle.js"></script>
+    <script src="/@/config.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/tabs.js"></script>
     <script>
-      function loadIframe(url) {
-        const iframe = document.getElementById("iframeId");
-        iframe.src = url;
-      }
       function setIframe() {
         let encodedUrl = sessionStorage.getItem("encodedUrl");
-        console.log(encodedUrl);
-        document.getElementById("iframeId").src = encodedUrl;
+        createTab(encodedUrl);
       }
     </script>
     <script type="text/javascript">
       setIframe();
     </script>
-    <script src="js/index.js"></script>
     <script>
       document.getElementById("home").addEventListener("click", function () {
         window.location.assign("/");
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const svgIcon = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-  <path d="M18 6 6 18"/>
-  <path d="m6 6 12 12"/>
-  </svg>`;
-
-        const tabs = document.querySelectorAll(".tab");
-
-        tabs.forEach((tab) => {
-          tab.innerHTML += svgIcon;
-        });
       });
     </script>
   </body>

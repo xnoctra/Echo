@@ -451,14 +451,14 @@ body {
 }
 
 .saving {
-  border: 1px solid rgba(0, 0, 0, 0.338);
+  border: 1px solid rgba(255, 255, 255, 0.338);
   border-left-color: transparent;
   border-radius: 50%;
   z-index: 99999999;
 }
 
 .saving {
-  border: 1px solid rgba(0, 0, 0, 0.338);
+  border: 1px solid rgba(255, 255, 255, 0.338);
   border-left-color: transparent;
   width: 13px;
   height: 13px;
@@ -466,7 +466,7 @@ body {
 }
 
 .saving {
-  border: 1px solid rgba(0, 0, 0, 0.338);
+  border: 1px solid rgba(255, 255, 255, 0.338);
   border-left-color: transparent;
   width: 13px;
   height: 13px;
@@ -475,7 +475,6 @@ body {
   position: fixed;
   bottom: 10px;
   left: 10px;
-  display: none;
 }
 
 @keyframes saving {

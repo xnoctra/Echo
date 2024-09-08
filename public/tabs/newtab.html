@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="Vibrance" />
     <meta name="description" content="A fast way to unblock websites." />
-    <link rel="icon" type="image/x-icon" href="echo2.png" />
-    <title>Echo</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="new-t.png" />
+    <title>New Tab</title>
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body style="margin: 0">
     <div id="loader">
@@ -19,7 +19,6 @@
         <div></div>
         <div></div>
       </div>
-      <h1 style="transform: translateY(-6px)">Echo</h1>
     </div>
 
     <div style="display: none" id="bootup">
@@ -349,7 +348,7 @@
               let encodedUrl =
                 swConfigSettings.prefix + crypts.encode(search(address.value));
               sessionStorage.setItem("encodedUrl", encodedUrl);
-              location.href = "/tabs";
+              location.href = encodedUrl
             });
           })
           .catch((error) => {
@@ -408,6 +407,6 @@
 
       corruptText(infectedIndex);
     </script>
-    <script src="js/index.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>
